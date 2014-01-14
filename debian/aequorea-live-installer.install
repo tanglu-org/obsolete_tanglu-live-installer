@@ -1,7 +1,7 @@
-config/* etc
-data/applications/ usr/share/applications
-data/bin usr/bin
-data/icons usr/share/icons
-data/live-installer/ usr/share/live-installer
-data/menu usr/share/menu
-src/* usr/lib/live-installer
+etc
+usr/bin
+usr/lib/live-installer
+usr/share/applications
+usr/share/icons
+usr/share/live-installer
+usr/share/menu

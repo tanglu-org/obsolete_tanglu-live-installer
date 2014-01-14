@@ -1,8 +1,14 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE=1
 
+# Define install target dir
+INSTALLDIR = $(CURDIR)/debian/tmp
+
 %:
 	dh $@ --parallel --with python2
+
+override_dh_auto_install:
+	$(CURDIR)/install.sh DESTDIR=$(INSTALLDIR)
 
 override_dh_install:
 	dh_install --list-missing
