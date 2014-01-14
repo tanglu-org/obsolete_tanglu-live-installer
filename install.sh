@@ -11,7 +11,7 @@ fi
 mkdir -p $DESTDIR$INSTALL_PREFIX
 if [ ! -w $DESTDIR$INSTALL_PREFIX ]
 then
-    echo "\nERROR: $DESTDIR$INSTALL_PREFIX is not writable."
+    echo "ERROR: $DESTDIR$INSTALL_PREFIX is not writable."
     exit
 fi
 
@@ -25,10 +25,10 @@ mkdir -p $TARGET/share/icons
 mkdir -p $TARGET/share/menu
 mkdir -p $TARGET/bin
 
-cp -r config/ $DESTDIR/etc
-cp -r src/ $TARGET/lib/live-installer
-cp -r data/live-installer/ $TARGET/share/live-installer
-cp -r data/applications/ $TARGET/share/applications
-cp -r data/icons $TARGET/share/icons
-cp -r data/menu $TARGET/share/menu
-cp -r data/bin $TARGET/bin
+cp -r config/* $DESTDIR/etc
+cp -r src/* $TARGET/lib/live-installer
+cp -r data/live-installer/* $TARGET/share/live-installer
+cp -r data/applications/* $TARGET/share/applications
+cp -r data/icons/* $TARGET/share/icons
+cp -r data/menu/* $TARGET/share/menu
+cp -r data/bin/* $TARGET/bin
