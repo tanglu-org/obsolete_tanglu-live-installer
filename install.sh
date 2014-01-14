@@ -37,6 +37,7 @@ cp -dr data/live-installer/* $TARGET/share/live-installer/
 
 cp data/applications/debian-installer-launcher.desktop $TARGET/share/applications/
 cp data/icons/*.png $TARGET/share/icons/
+cp data/icons/*.xpm $TARGET/share/icons/
 cp data/menu/live-installer $TARGET/share/menu/
 
 cp data/bin/live-installer $TARGET/bin
