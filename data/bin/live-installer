@@ -1,3 +1,73 @@
 #!/bin/bash
-# Launch live-installer with all passed arguments (future reserved)
-/usr/bin/python2.7 -tt /usr/lib/live-installer/main.py $*
+# run live-installer as root
+set -e
+
+exit_success()
+{
+    if [ $# -gt 0 ]; then
+        echo "$@"
+        echo
+    fi
+
+    exit 0
+}
+
+exit_failure()
+{
+    if [ $# -gt 0 ]; then
+        echo "@NAME@: $@" >&2
+    fi
+
+    exit 3
+}
+
+detectDE()
+{
+  if [ x$DISPLAY != x ] ; then
+      if [ x"$KDE_FULL_SESSION" = x"true" ]; then DE=kde;
+      elif [ x"$GNOME_DESKTOP_SESSION_ID" != x"" ]; then DE=gnome;
+      elif $(dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.gnome.SessionManager > /dev/null 2>&1) ; then DE=gnome;
+      elif xprop -root _DT_SAVE_MODE 2> /dev/null | grep ' = \"xfce4\"$' >/dev/null 2>&1; then DE=xfce;
+      elif [[ $(ps aux) =~ ""lxsession"" ]]; then DE=lxde;
+      elif [[ $(ps aux) =~ ""mate-session"" ]]; then DE=mate;
+      fi
+  else
+      exit_failure "FATAL ERROR: You' re not running X server. No use of graphical environment. Exiting ..."
+  fi
+}
+
+# the live-installer command we want to run
+cmd="/usr/bin/python2.7 -tt /usr/lib/live-installer/main.py $*"
+
+# detect desktop environment
+detectDE
+
+if [ x"$DE" = x"kde" ]; then
+    KDESUDO=$(which kdesudo 2>/dev/null)
+    if [ x"$KDE_SESSION_VERSION" = x"4" ]; then
+        KDESU=$(kde4-config --locate kdesu --path exe 2>/dev/null)
+    else
+        KDESU=$(which kdesu 2>/dev/null)
+    fi
+    if [ -z "$KDESUDO" ] ; then
+      KDE_SU=$KDESU
+    else
+      KDE_SU=$KDESUDO
+    fi
+    if [ $? -eq 0 ] ; then
+        $KDE_SU "$cmd"
+    fi
+    if [ $? -eq 0 ]; then
+            exit_success
+    fi
+fi
+
+# if we are on GNOME or another DE, or kdesudo failed before, try to use gksudo
+GSU=$(which gksudo 2>/dev/null)
+if [ $? -eq 0 ] ; then
+    $GSU "$cmd"
+else
+    echo "Unable to find graphical sudo helper. Please run this application with root permission manually."
+    echo "Could not find kdesudo/kdesu or gksudo!"
+    exit 6
+fi

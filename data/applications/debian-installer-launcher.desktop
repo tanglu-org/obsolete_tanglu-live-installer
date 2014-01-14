@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Install Linux Mint
+Name=Install Tanglu
 GenericName=Live Installer
 Comment=Install the operating system to disk
-Exec=gksudo /usr/bin/live-installer
+Exec=/usr/bin/live-installer
 Icon=live-installer
 Terminal=False
 Type=Application
