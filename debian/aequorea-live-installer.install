@@ -1,0 +1,6 @@
+config/* etc
+src/* usr/lib/live-installer
+data/live-installer/ usr/share/live-installer
+data/applications/ usr/share/applications
+data/icons usr/share/icons
+data/menu usr/share/menu

@@ -1,4 +1,4 @@
-Source: live-installer
+Source: tanglu-live-installer
 Section: admin
 Priority: optional
 Maintainer: Tanglu Developers <tanglu-devel-discuss@lists.tanglu.org>
@@ -20,4 +20,3 @@ Description: Live Installer for Aequorea - Slideshow
  .
  This package contains a Tanglu slideshow for the
  live-installer.
-
