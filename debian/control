@@ -7,7 +7,23 @@ Standards-Version: 3.9.4
 
 Package: aequorea-live-installer
 Architecture: all
-Depends: ${misc:Depends}, python (>= 2.7), python (<< 3), python-dev, python-gtk2, python-glade2, python-parted, python-webkit, gparted, inxi, python-geoip, python-qt4, python-opencv, python-numpy, imagemagick, python-imaging
+Depends: gksu | kdesudo,
+         gparted,
+         imagemagick,
+         inxi,
+         python (<< 3),
+         python (>= 2.7),
+         python-dev,
+         python-geoip,
+         python-glade2,
+         python-gtk2,
+         python-imaging,
+         python-numpy,
+         python-opencv,
+         python-parted,
+         python-qt4,
+         python-webkit,
+         ${misc:Depends}
 Description: Live Installer for Tanglu Aequorea
  A live installer for Tanglu GNU/Linux, designed for
  the Aequorea Victoria release.
