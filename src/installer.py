@@ -223,7 +223,7 @@ class InstallerEngine:
             print " --> Removing live packages"
             our_current += 1
             self.update_progress(total=our_total, current=our_current, message=_("Removing live configuration (packages)"))
-            self.do_run_in_chroot("apt-get remove --purge --yes --force-yes live-boot live-boot-initramfs-tools live-initramfs aequorea-live-installer live-config live-config-systemd gparted")
+            self.do_run_in_chroot("apt-get purge --yes --force-yes live-boot live-boot-initramfs-tools live-initramfs tanglu-live-installer tanglu-live-installer-slideshow-gnome tanglu-live-installer-slideshow-kde live-config live-config-systemd gparted")
 
             # When the purge is incomplete and leaves redundant symbolic links in the rc*.d directories.
             # The resulting startpar error prevents gsfxi to successfully install the Nvidia drivers.
@@ -490,11 +490,12 @@ class InstallerEngine:
             if (setup.skip_mount):
                 self.do_run_in_chroot("/usr/sbin/update-initramfs -u -k all")
 
-            # Clean APT
-            print " --> Cleaning APT"
+            # Finalize config
+            print " --> Finalize config"
             our_current += 1
-            self.update_progress(pulse=True, total=our_total, current=our_current, message=_("Cleaning APT"))
+            self.update_progress(pulse=True, total=our_total, current=our_current, message=_("Finalizing configuration"))
             os.system("chroot /target/ /bin/sh -c \"dpkg --configure -a\"")
+            self.do_run_in_chroot("apt-get --purge --yes --force-yes autoremove")
 
             # now unmount it
             print " --> Unmounting partitions"
