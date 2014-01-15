@@ -1,0 +1,11 @@
+#!/bin/sh
+# postrm script for tanglu-live-installer
+set -e
+
+if [ "$1" = purge ]; then
+  update-rc.d live-installer remove
+fi
+
+#DEBHELPER#
+
+exit 0

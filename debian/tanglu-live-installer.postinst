@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for live-installer
+# postinst script for tanglu-live-installer
 set -e
 
 # summary of how this script can be called:
@@ -35,5 +35,3 @@ esac
 #DEBHELPER#
 
 exit 0
-
-
