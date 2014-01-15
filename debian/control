@@ -5,7 +5,7 @@ Maintainer: Tanglu Developers <tanglu-devel-discuss@lists.tanglu.org>
 Build-Depends: debhelper (>= 9), python (>= 2.7) | python-all | python-dev | python-all-dev
 Standards-Version: 3.9.4
 
-Package: aequorea-live-installer
+Package: tanglu-live-installer
 Architecture: all
 Depends: gksu | kdesudo,
          gparted,
@@ -22,17 +22,30 @@ Depends: gksu | kdesudo,
          python-parted,
          python-qt4,
          python-webkit,
+         tanglu-live-installer-slideshow-gnome | tanglu-live-installer-slideshow-kde,
          ${misc:Depends}
 Description: Live Installer for Tanglu Aequorea
  A live installer for Tanglu GNU/Linux, designed for
  the Aequorea Victoria release.
 
-Package: aequorea-live-installer-slideshow
+Package: tanglu-live-installer-slideshow-gnome
 Architecture: all
+Conflicts: tanglu-live-installer-slideshow-kde
 Depends: ${misc:Depends}
-Description: Live Installer for Aequorea - Slideshow
+Description: Live Installer for Aequorea - GNOME Slideshow
  A live installer for Tanglu GNU/Linux, designed for
  the Aequorea Victoria release.
  .
- This package contains a Tanglu slideshow for the
- live-installer.
+ This package contains a Tanglu slideshow, showcasing the
+ GNOME desktop, for the live-installer.
+
+Package: tanglu-live-installer-slideshow-kde
+Architecture: all
+Conflicts: tanglu-live-installer-slideshow-gnome
+Depends: ${misc:Depends}
+Description: Live Installer for Aequorea - KDE Slideshow
+ A live installer for Tanglu GNU/Linux, designed for
+ the Aequorea Victoria release.
+ .
+ This package contains a Tanglu slideshow, showcasing the
+ KDE Plasma desktop, for the live-installer.
