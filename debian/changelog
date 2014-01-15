@@ -1,3 +1,13 @@
+tanglu-live-installer (0.2) staging; urgency=low
+
+  * Update config to match our live-build
+  * Update slideshow handling and fix slideshow
+  * Do very few initial adjustments on the slides for Tanglu
+  * Rename package and allow multiple different slideshows
+  * Remove initscript-link in postrm
+
+ -- Matthias Klumpp <mak@debian.org>  Wed, 15 Jan 2014 12:10:12 +0100
+
 tanglu-live-installer (0.1) staging; urgency=low
 
   * Initial release for testing with Tanglu
