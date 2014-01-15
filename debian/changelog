@@ -1,3 +1,10 @@
+tanglu-live-installer (0.3) staging; urgency=low
+
+  * Mach' flott den Schrott!
+  * Add missing dependency
+
+ -- Matthias Klumpp <mak@debian.org>  Wed, 15 Jan 2014 17:04:54 +0100
+
 tanglu-live-installer (0.2) staging; urgency=low
 
   * Update config to match our live-build
