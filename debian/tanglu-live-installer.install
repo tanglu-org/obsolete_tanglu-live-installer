@@ -3,13 +3,13 @@ usr/bin
 usr/lib/live-installer
 usr/share/applications
 usr/share/icons
+usr/share/live-installer/*.glade
+usr/share/live-installer/*.png
+usr/share/live-installer/countries
 usr/share/live-installer/flags
 usr/share/live-installer/icons
-usr/share/live-installer/timezone
-usr/share/live-installer/*.png
-usr/share/live-installer/*.glade
-usr/share/live-installer/countries
 usr/share/live-installer/languages
 usr/share/live-installer/locales
+usr/share/live-installer/timezone
 usr/share/live-installer/timezones
 usr/share/menu
