@@ -18,7 +18,7 @@ pages = [
 ]
 
 class Slideshow(threading.Thread):
-    def __init__(self, webviewObject, slideshowDirectory, language='', intervalSeconds=30, loopPages=True):
+    def __init__(self, webviewObject, slideshowDirectory, language='', intervalSeconds=40, loopPages=True):
         threading.Thread.__init__(self)
         self.browser = webviewObject
         self.loop = loopPages
@@ -29,11 +29,11 @@ class Slideshow(threading.Thread):
         self.template = os.path.join(slideshowDirectory, 'template.html')
         self.templateText = ''
         self.pageContent = []
-        
+
         # Prepare variables
         self.prepare()
-        
-    
+
+
     def prepare(self):
         try:
             # Prepare pages
@@ -65,7 +65,7 @@ class Slideshow(threading.Thread):
             print detail
 
     def run(self):
-        # Update widget in main thread             
+        # Update widget in main thread
         try:
             if self.pageContent:
                 # Loop through all pages
@@ -80,10 +80,10 @@ class Slideshow(threading.Thread):
                         # Use glib to schedule an update of the parent browser object
                         # If you do this directly the objects won't refresh
                         glib.idle_add(self.browser.load_html_string, self.pageContent[i][1], 'file:///')
-                        
+
                         # Wait interval
                         time.sleep(self.interval)
-                        
+
                         # Reset counter when you need to loop the pages
                         if i == lastIndex:
                             if self.loop:
@@ -99,7 +99,7 @@ class Slideshow(threading.Thread):
                 print 'No pages found to load'
         except Exception, detail:
             print detail
-            
+
     def getLanguageDirectory(self):
         langDir = self.slideshowDir
         if self.language != '':

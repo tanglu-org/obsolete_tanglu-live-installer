@@ -25,6 +25,7 @@ TARGET=$DESTDIR$INSTALL_PREFIX
 mkdir -p $DESTDIR/etc
 mkdir -p $TARGET/lib/live-installer
 mkdir -p $TARGET/share/live-installer
+mkdir -p $TARGET/share/live-installer/slideshow
 mkdir -p $TARGET/share/applications
 mkdir -p $TARGET/share/icons
 mkdir -p $TARGET/share/menu
@@ -42,3 +43,5 @@ cp data/menu/live-installer $TARGET/share/menu/
 
 cp data/bin/live-installer $TARGET/bin
 cp data/bin/live-installer-dm $TARGET/bin
+
+cp -r slideshows/test $TARGET/share/live-installer/slideshow/
