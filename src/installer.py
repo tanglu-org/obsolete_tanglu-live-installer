@@ -474,6 +474,7 @@ class InstallerEngine:
             if(setup.grub_device is not None):
                 self.update_progress(pulse=True, total=our_total, current=our_current, message=_("Installing bootloader"))
                 print " --> Running grub-install"
+                self.do_run_in_chroot("apt-get install --yes --force-yes grub2 grub-theme-tanglu")
                 self.do_run_in_chroot("grub-install --force %s" % setup.grub_device)
                 self.do_configure_grub(our_total, our_current)
                 grub_retries = 0
