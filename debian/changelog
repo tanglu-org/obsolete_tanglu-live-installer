@@ -1,3 +1,11 @@
+tanglu-live-installer (0.3.1) staging; urgency=low
+
+  * Show slideshow icons
+  * Make sure GRUB is installed (get it from the web if necessary)
+  * Fix crash when adding dialog shortcut twice
+
+ -- Matthias Klumpp <matthias@tenstral.net>  Thu, 16 Jan 2014 00:00:54 +0100
+
 tanglu-live-installer (0.3) staging; urgency=low
 
   * Mach' flott den Schrott!
