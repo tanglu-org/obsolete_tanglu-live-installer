@@ -416,15 +416,15 @@ class InstallerEngine:
                 # Firefox
                 print " --> Localizing Firefox"
                 self.update_progress(total=our_total, current=our_current, message=_("Localizing Firefox"))
-                num_res = commands.getoutput("aptitude search firefox-l10n-%s | grep firefox-l10n-%s | wc -l" % (locale, locale))
+                num_res = commands.getoutput("aptitude search firefox-locale-%s | grep firefox-locale-%s | wc -l" % (locale, locale))
                 if num_res != "0":
-                    self.do_run_in_chroot("apt-get install --yes --force-yes firefox-l10n-" + locale)
+                    self.do_run_in_chroot("apt-get install --yes --force-yes firefox-locale-" + locale)
                 else:
                     if "_" in setup.language:
                         language_code = setup.language.split("_")[0]
-                        num_res = commands.getoutput("aptitude search firefox-l10n-%s | grep firefox-l10n-%s | wc -l" % (language_code, language_code))
+                        num_res = commands.getoutput("aptitude search firefox-locale-%s | grep firefox-locale-%s | wc -l" % (language_code, language_code))
                         if num_res != "0":
-                            self.do_run_in_chroot("apt-get install --yes --force-yes firefox-l10n-" + language_code)
+                            self.do_run_in_chroot("apt-get install --yes --force-yes firefox-locale-" + language_code)
 
                 # Thunderbird
                 print " --> Localizing Thunderbird"
