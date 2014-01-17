@@ -249,12 +249,6 @@ class InstallerEngine:
                 os.system("cp /tmp/live-installer-face.png /target/home/%s/.face" % setup.username)
                 self.do_run_in_chroot("chown %s:%s /home/%s/.face" % (setup.username, setup.username, setup.username))
 
-            # Make the new user the default user in KDM
-            if os.path.exists('/target/etc/kde4/kdm/kdmrc'):
-                defUsrCmd = "sed -i 's/^#DefaultUser=.*/DefaultUser=" + setup.username + "/g' " + kdmrcPath
-                print defUsrCmd
-                os.system(defUsrCmd)
-
             # write the /etc/fstab
             print " --> Writing fstab"
             our_current += 1
@@ -330,7 +324,13 @@ class InstallerEngine:
             hostsfh.write("ff02::3 ip6-allhosts\n")
             hostsfh.close()
 
-            if os.path.exists("/target/etc/gdm3/daemon.conf"):
+            # Make the new user the default user in KDM
+            kdmrcPath = '/target/etc/kde4/kdm/kdmrc'
+            if os.path.exists(kdmrcPath):
+                defUsrCmd = "sed -i 's/^#DefaultUser=.*/DefaultUser=" + setup.username + "/g' " + kdmrcPath
+                print defUsrCmd
+                os.system(defUsrCmd)
+            elif os.path.exists("/target/etc/gdm3/daemon.conf"):
                 # gdm overwrite (specific to Debian/live-initramfs)
                 print " --> Configuring GDM"
                 gdmconffh = open("/target/etc/gdm3/daemon.conf", "w")
