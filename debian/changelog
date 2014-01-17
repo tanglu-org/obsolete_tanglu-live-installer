@@ -1,3 +1,9 @@
+tanglu-live-installer (0.4.2) staging; urgency=low
+
+  * Don't fail while cleaning up old live packages
+
+ -- Matthias Klumpp <mak@debian.org>  Fri, 17 Jan 2014 18:38:42 +0100
+
 tanglu-live-installer (0.4.1) staging; urgency=low
 
   * Correctly install Firefox localization
