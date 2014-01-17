@@ -18,7 +18,7 @@ pages = [
 ]
 
 class Slideshow(threading.Thread):
-    def __init__(self, webviewObject, slideshowDirectory, language='', intervalSeconds=40, loopPages=True):
+    def __init__(self, webviewObject, slideshowDirectory, language='', intervalSeconds=48, loopPages=True):
         threading.Thread.__init__(self)
         self.browser = webviewObject
         self.loop = loopPages
