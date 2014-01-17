@@ -327,9 +327,17 @@ class InstallerEngine:
             # Make the new user the default user in KDM
             kdmrcPath = '/target/etc/kde4/kdm/kdmrc'
             if os.path.exists(kdmrcPath):
-                defUsrCmd = "sed -i 's/^#DefaultUser=.*/DefaultUser=" + setup.username + "/g' " + kdmrcPath
-                print defUsrCmd
-                os.system(defUsrCmd)
+                # Remove autologin
+                print " --> Remove autologin from KDM"
+                cmd = "sed -i 's/^AutoLoginEnable.*/#AutoLoginEnable=true/g' %s" % kdmrcPath
+                os.system(cmd)
+                cmd = "sed -i 's/^AutoLoginAgain.*/#AutoLoginAgain=true/g' %s" % kdmrcPath
+                os.system(cmd)
+                cmd = "sed -i 's/^AutoLoginUser.*/#AutoLoginUser=solydxk/g' %s" % kdmrcPath
+                os.system(cmd)
+                print " --> Make new user default in KDM"
+                cmd = "sed -i 's/^#DefaultUser=.*/DefaultUser=%s/g' %s" % (setup.username, kdmrcPath)
+                os.system(cmd)
             elif os.path.exists("/target/etc/gdm3/daemon.conf"):
                 # gdm overwrite (specific to Debian/live-initramfs)
                 print " --> Configuring GDM"
