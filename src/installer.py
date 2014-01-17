@@ -333,7 +333,7 @@ class InstallerEngine:
                 os.system(cmd)
                 cmd = "sed -i 's/^AutoLoginAgain.*/#AutoLoginAgain=true/g' %s" % kdmrcPath
                 os.system(cmd)
-                cmd = "sed -i 's/^AutoLoginUser.*/#AutoLoginUser=solydxk/g' %s" % kdmrcPath
+                cmd = "sed -i 's/^AutoLoginUser.*/#AutoLoginUser=user/g' %s" % kdmrcPath
                 os.system(cmd)
                 print " --> Make new user default in KDM"
                 cmd = "sed -i 's/^#DefaultUser=.*/DefaultUser=%s/g' %s" % (setup.username, kdmrcPath)
