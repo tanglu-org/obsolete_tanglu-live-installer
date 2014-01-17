@@ -252,7 +252,7 @@ class InstallerWindow:
         # build user info page
         self.wTree.get_widget("face_select_picture_button").connect( "button-release-event", self.face_select_picture_button_clicked)
         self.wTree.get_widget("face_take_picture_button").connect( "button-release-event", self.face_take_picture_button_clicked)
-        os.system("convert /usr/share/pixmaps/faces/user-generic.png -resize x96 /tmp/live-installer-face.png")
+        os.system("convert /usr/share/pixmaps/user-faces/user-generic.png -resize x96 /tmp/live-installer-face.png")
         self.wTree.get_widget("face_image").set_from_file("/tmp/live-installer-face.png")
 
         webcam_detected = False
@@ -459,7 +459,7 @@ class InstallerWindow:
                                                  gtk.RESPONSE_OK),
                                         backend=None)
         chooser.set_default_response(gtk.RESPONSE_OK)
-        chooser.set_current_folder("/usr/share/pixmaps/faces")
+        chooser.set_current_folder("/usr/share/pixmaps/user-faces")
         filter = gtk.FileFilter()
         filter.set_name(_('Images'))
         filter.add_mime_type('image/png')
