@@ -1,4 +1,11 @@
-tanglu-live-installer (0.4) staging; urgency=low
+tanglu-live-installer (0.4.1) staging; urgency=low
+
+  * Correctly install Firefox localization
+  * Update KDE and GNOME slideshows to be less wrong
+
+ -- Matthias Klumpp <mak@debian.org>  Fri, 17 Jan 2014 16:26:42 +0100
+
+tanglu-live-installer (0.4.0) staging; urgency=low
 
   * Fix creation of admin user
   * Add missing dependency on tanglu-artwork-base
