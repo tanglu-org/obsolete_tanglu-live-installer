@@ -24,6 +24,7 @@ Depends: desktop-file-utils,
          python-parted,
          python-qt4,
          python-webkit,
+         tanglu-artwork-base,
          tanglu-live-installer-slideshow-gnome | tanglu-live-installer-slideshow-kde,
          ${misc:Depends}
 Description: Live Installer for Tanglu Aequorea
