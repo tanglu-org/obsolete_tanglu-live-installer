@@ -223,7 +223,9 @@ class InstallerEngine:
             print " --> Removing live packages"
             our_current += 1
             self.update_progress(total=our_total, current=our_current, message=_("Removing live configuration (packages)"))
-            self.do_run_in_chroot("apt-get purge --yes --force-yes live-boot live-boot-initramfs-tools live-initramfs tanglu-live-installer tanglu-live-installer-slideshow-gnome tanglu-live-installer-slideshow-kde live-config live-config-systemd gparted")
+            self.do_run_in_chroot("apt-get purge --yes --force-yes live-boot live-boot-initramfs-tools tanglu-live-installer live-config live-config-systemd gparted")
+            self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-gnome")
+            self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-kde")
 
             # When the purge is incomplete and leaves redundant symbolic links in the rc*.d directories.
             # The resulting startpar error prevents gsfxi to successfully install the Nvidia drivers.
