@@ -1,3 +1,13 @@
+tanglu-live-installer (0.4) staging; urgency=low
+
+  * Fix creation of admin user
+  * Add missing dependency on tanglu-artwork-base
+  * Fix installations with broken user face image
+  * Correctly write KDM configuration
+  * Create the right fstab for the installed system
+
+ -- Matthias Klumpp <mak@debian.org>  Fri, 17 Jan 2014 08:06:46 +0100
+
 tanglu-live-installer (0.3.1) staging; urgency=low
 
   * Show slideshow icons
