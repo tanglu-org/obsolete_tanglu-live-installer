@@ -509,8 +509,10 @@ class InstallerEngine:
             print " --> Finalize config"
             our_current += 1
             self.update_progress(pulse=True, total=our_total, current=our_current, message=_("Finalizing configuration"))
-            os.system("chroot /target/ /bin/sh -c \"dpkg --configure -a\"")
             self.do_run_in_chroot("apt-get --purge --yes --force-yes autoremove")
+            os.system("chroot /target/ /bin/sh -c \"dpkg --configure -a\"")
+            self.do_run_in_chroot("dpkg-reconfigure -f Noninteractive --force dbus")
+            self.do_run_in_chroot("dpkg-reconfigure -f Noninteractive --force systemd")
 
             # now unmount it
             print " --> Unmounting partitions"
