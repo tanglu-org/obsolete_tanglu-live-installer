@@ -231,6 +231,9 @@ class InstallerEngine:
             # The resulting startpar error prevents gsfxi to successfully install the Nvidia drivers.
             self.do_run_in_chroot("update-rc.d -f live-installer remove")
 
+            # remove some live-config cruft which might still be around
+            self.do_run_in_chroot("rm -rf /lib/live")
+
             # add new user
             print " --> Adding new user"
             our_current += 1
