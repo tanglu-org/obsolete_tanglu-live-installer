@@ -1,3 +1,12 @@
+tanglu-live-installer (0.4.4) staging; urgency=low
+
+  * Only reconfigure dbus and systemd instead of all packages
+    - This speeds up the installation
+    - We need unique machine-ids, therefore these packages must be
+      reconfigured
+
+ -- Matthias Klumpp <mak@debian.org>  Sat, 18 Jan 2014 17:54:07 +0100
+
 tanglu-live-installer (0.4.3) staging; urgency=low
 
   * Reconfigure all packages on the new system
