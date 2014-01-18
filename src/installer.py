@@ -184,8 +184,8 @@ class InstallerEngine:
                     # os.utime() sets timestamp of target, not link
                     elif not stat.S_ISLNK(st.st_mode):
                         os.utime(targetpath, (st.st_atime, st.st_mtime))
-                # Apply timestamps to all directories now that the items within them
-                # have been copied.
+            # Apply timestamps to all directories now that the items within them
+            # have been copied.
             print " --> Restoring meta-info"
             for dirtime in directory_times:
                 (directory, atime, mtime) = dirtime
@@ -511,6 +511,8 @@ class InstallerEngine:
             self.update_progress(pulse=True, total=our_total, current=our_current, message=_("Finalizing configuration"))
             self.do_run_in_chroot("apt-get --purge --yes --force-yes autoremove")
             os.system("chroot /target/ /bin/sh -c \"dpkg --configure -a\"")
+            # we need to reconfigure systemd to make it working,
+            # also dbus and systemd create unique machine-ids which we will need
             self.do_run_in_chroot("dpkg-reconfigure -f noninteractive --force dbus")
             self.do_run_in_chroot("dpkg-reconfigure -f noninteractive --force systemd")
 
