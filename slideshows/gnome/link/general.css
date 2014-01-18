@@ -2,9 +2,9 @@ html, body
 {
 	margin:0;
 	padding:0;
-	
+
 	background-color:#FFFFFF;
-	
+
 	font-family:sans-serif;
 	color:#000000;
 }
@@ -21,14 +21,14 @@ a
 #container
 {
 	position:absolute;
-	
+
 	width:800px;
 	height:409px;
-	
-	border: 1px solid black; 
-	
+
+	border: 1px solid black;
+
 	overflow:hidden;
-	
+
 	background-image:url('background.jpg');
 	background-repeat:no-repeat;
 	background-position:top left;
@@ -60,7 +60,7 @@ Title block is positioned at the top of a slide.
 .title
 {
     color:#000000;
-    
+
 	position:absolute;
 	top:15px;
 	left:10px;
@@ -78,13 +78,13 @@ Typically an image. This is positioned at the bottom right of a slide.
 .icon
 {
 	position:absolute;
-	
+
 	width:auto;
 	height:auto;
-	
-	bottom:0px;
-	right:10px;
-	
+
+	bottom:14px;
+	right:12px;
+
 	z-index:11;
 	border:0px;
 }
@@ -97,14 +97,14 @@ appear :)
 .main
 {
 	position:absolute;
-	
+
 	top:50px;
 	left:0px;
 
     padding-right:60px;
-	
+
 	font-size:14px;
-	
+
 	z-index:12;
 }
 
@@ -117,7 +117,7 @@ margins around it.
 {
 	padding-left:16px;
 	padding-right:16px;
-	
+
 	width:490px;
 }
 
@@ -137,7 +137,7 @@ margins around it.
 {
 	margin-top:1.4em;
 	margin-bottom:1em;
-	
+
 	font-weight:bold;
 }
 
@@ -155,21 +155,21 @@ This way we can provide clear visual cues with minimal babbling.
 .menu-item
 {
 	display:inline-block;
-	
+
 	border-radius:3px;
 	-webkit-border-radius:3px;
 	/*-moz-border-radius:3px;*/
-	
+
 	height:16px;
 	padding:1px;
-	
+
 	padding-left:3px;
 	padding-right:3px;
-	
+
 	border-style:solid;
 	border-width:1px;
 	border-color:#a89a8d;
-	
+
 	background-color:#f7f5f3;
 }
 
@@ -182,7 +182,7 @@ look in Ubuntu's GTK theme.
 {
 	display:inline-block;
 	content:url('menu-arrow.png');
-	
+
 	padding-left:2px;
 	padding-right:5px;
 }
