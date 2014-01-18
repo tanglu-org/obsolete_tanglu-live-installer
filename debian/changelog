@@ -1,3 +1,10 @@
+tanglu-live-installer (0.4.3) staging; urgency=low
+
+  * Reconfigure all packages on the new system
+  * Remove some live-config cruft after installation
+
+ -- Matthias Klumpp <mak@debian.org>  Sat, 18 Jan 2014 17:34:22 +0100
+
 tanglu-live-installer (0.4.2) staging; urgency=low
 
   * Don't fail while cleaning up old live packages
