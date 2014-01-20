@@ -1,3 +1,9 @@
+tanglu-live-installer (0.4.6) staging; urgency=low
+
+  * Remove temporary gconf overrides during installation
+
+ -- Matthias Klumpp <mak@debian.org>  Mon, 20 Jan 2014 22:56:20 +0100
+
 tanglu-live-installer (0.4.5) staging; urgency=low
 
   * Fix some slideshow UI issues
