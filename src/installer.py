@@ -519,6 +519,8 @@ class InstallerEngine:
             # also dbus and systemd create unique machine-ids which we will need
             self.do_run_in_chroot("dpkg-reconfigure -f noninteractive --force dbus")
             self.do_run_in_chroot("dpkg-reconfigure -f noninteractive --force systemd")
+            # reconfigure ping
+            self.do_run_in_chroot("dpkg-reconfigure -f noninteractive --force iputils-ping")
 
             # now unmount it
             print " --> Unmounting partitions"
