@@ -1,3 +1,10 @@
+tanglu-live-installer (0.4.7) staging; urgency=low
+
+  * Reconfigure ping after installation
+  * Update slideshow background images
+
+ -- Matthias Klumpp <mak@debian.org>  Fri, 14 Feb 2014 18:06:08 +0100
+
 tanglu-live-installer (0.4.6) staging; urgency=low
 
   * Remove temporary gconf overrides during installation
