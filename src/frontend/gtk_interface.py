@@ -1581,22 +1581,14 @@ class InstallerWindow:
                     errorMessage = _("Please provide a hostname")
                 else:
                     for char in self.setup.username:
-                        if(char.isupper()):
+                        if(char.isspace()):
                             errorFound = True
-                            errorMessage = _("Your username must be lower case")
-                            break
-                        elif(char.isspace()):
-                            errorFound = True
-                            errorMessage = _("Your username may not contain whitespace")
+                            errorMessage = _("Your username must not contain whitespaces")
 
                     for char in self.setup.hostname:
-                        if(char.isupper()):
+                        if(char.isspace()):
                             errorFound = True
-                            errorMessage = _("Your hostname must be lower case")
-                            break
-                        elif(char.isspace()):
-                            errorFound = True
-                            errorMessage = _("Your hostname may not contain whitespace")
+                            errorMessage = _("Your hostname must not contain whitespaces")
 
                 if (errorFound):
                     MessageDialog(_("Installation Tool"), errorMessage, gtk.MESSAGE_WARNING, self.window).show()
