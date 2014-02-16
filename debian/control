@@ -11,7 +11,7 @@ Architecture: all
 Depends: desktop-file-utils,
          gksu | kdesudo,
          gparted,
-         imagemagick,
+         graphicsmagick-imagemagick-compat,
          inxi,
          python (<< 3),
          python (>= 2.7),
