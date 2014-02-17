@@ -1,3 +1,12 @@
+tanglu-live-installer (0.4.8) staging; urgency=low
+
+  * Don't try to localize Thunderbird
+  * Use graphicsmagick-imagemagick-compat instead of imagemagick
+  * Implement more advanced username/hostname validation
+  * Remove some cruft left by live-installer dependencies
+
+ -- Matthias Klumpp <mak@debian.org>  Mon, 17 Feb 2014 14:46:32 +0100
+
 tanglu-live-installer (0.4.7) staging; urgency=low
 
   * Reconfigure ping after installation
