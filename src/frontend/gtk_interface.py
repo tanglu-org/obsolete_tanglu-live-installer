@@ -14,6 +14,7 @@ try:
     import subprocess
     import sys
     import math
+    import re
     sys.path.append('/usr/lib/live-installer')
     from PIL import Image
     import pango
@@ -1517,6 +1518,17 @@ class InstallerWindow:
         self.wTree.get_widget("help_icon").set_from_file("/usr/share/live-installer/icons/%s" % self.wizard_pages[index].icon)
         self.wTree.get_widget("notebook1").set_current_page(index)
 
+    def is_valid_hostname(hostname):
+        if len(hostname) > 255:
+            return False
+        if hostname[-1] == ".":
+            hostname = hostname[:-1] # strip exactly one dot from the right, if present
+        allowed = re.compile("(?!-)[A-Z\d-]{1,63}(?<!-)$", re.IGNORECASE)
+        return all(allowed.match(x) for x in hostname.split("."))
+
+    def is_valid_username(username):
+        return re.search(r'^[A-z][A-z|\.|\s]+$',username) != None
+
     def wizard_cb(self, widget, goback, data=None):
         ''' wizard buttons '''
         sel = self.wTree.get_widget("notebook1").get_current_page()
@@ -1580,15 +1592,13 @@ class InstallerWindow:
                     errorFound = True
                     errorMessage = _("Please provide a hostname")
                 else:
-                    for char in self.setup.username:
-                        if(char.isspace()):
-                            errorFound = True
-                            errorMessage = _("Your username must not contain whitespaces")
+                    if not is_valid_username(self.setup.username):
+                        errorFound = True
+                        errorMessage = _("Your username is not valid. Make sure it does not contain spaces or non-ASCII caracters.")
 
-                    for char in self.setup.hostname:
-                        if(char.isspace()):
-                            errorFound = True
-                            errorMessage = _("Your hostname must not contain whitespaces")
+                    if not is_valid_hostname(self.setup.hostname):
+                        errorFound = True
+                        errorMessage = _("Your hostname is not valid. Make sure it does not contain spaces or non-ASCII caracters.")
 
                 if (errorFound):
                     MessageDialog(_("Installation Tool"), errorMessage, gtk.MESSAGE_WARNING, self.window).show()
