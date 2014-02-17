@@ -226,6 +226,9 @@ class InstallerEngine:
             self.do_run_in_chroot("apt-get purge --yes --force-yes live-boot live-boot-initramfs-tools tanglu-live-installer live-config live-config-systemd gparted")
             self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-gnome")
             self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-kde")
+            # this is only used by the live-installer
+            # FIXME: If a Tanglu spin is *ever* shipping it by default, we need to update this line!
+            self.do_run_in_chroot("apt-get purge --yes --force-yes graphicsmagick-imagemagick-compat")
 
             # When the purge is incomplete and leaves redundant symbolic links in the rc*.d directories.
             # The resulting startpar error prevents gsfxi to successfully install the Nvidia drivers.
