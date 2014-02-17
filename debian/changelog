@@ -1,3 +1,9 @@
+tanglu-live-installer (0.4.9) staging; urgency=low
+
+  * Remove graphicsmagick after installation
+
+ -- Matthias Klumpp <mak@debian.org>  Mon, 17 Feb 2014 15:52:54 +0100
+
 tanglu-live-installer (0.4.8) staging; urgency=low
 
   * Don't try to localize Thunderbird
