@@ -1518,7 +1518,7 @@ class InstallerWindow:
         self.wTree.get_widget("help_icon").set_from_file("/usr/share/live-installer/icons/%s" % self.wizard_pages[index].icon)
         self.wTree.get_widget("notebook1").set_current_page(index)
 
-    def is_valid_hostname(hostname):
+    def is_valid_hostname(self, hostname):
         if len(hostname) > 255:
             return False
         if hostname[-1] == ".":
@@ -1526,7 +1526,7 @@ class InstallerWindow:
         allowed = re.compile("(?!-)[A-Z\d-]{1,63}(?<!-)$", re.IGNORECASE)
         return all(allowed.match(x) for x in hostname.split("."))
 
-    def is_valid_username(username):
+    def is_valid_username(self, username):
         return re.search(r'^[A-z][A-z|\.|\s]+$',username) != None
 
     def wizard_cb(self, widget, goback, data=None):
@@ -1592,11 +1592,11 @@ class InstallerWindow:
                     errorFound = True
                     errorMessage = _("Please provide a hostname")
                 else:
-                    if not is_valid_username(self.setup.username):
+                    if not self.is_valid_username(self.setup.username):
                         errorFound = True
                         errorMessage = _("Your username is not valid. Make sure it does not contain spaces or non-ASCII caracters.")
 
-                    if not is_valid_hostname(self.setup.hostname):
+                    if not self.is_valid_hostname(self.setup.hostname):
                         errorFound = True
                         errorMessage = _("Your hostname is not valid. Make sure it does not contain spaces or non-ASCII caracters.")
 
