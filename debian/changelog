@@ -1,3 +1,9 @@
+tanglu-live-installer (0.4.10) staging; urgency=low
+
+  * Only remove the live-cd gsettings override
+
+ -- Matthias Klumpp <mak@debian.org>  Fri, 21 Feb 2014 17:10:10 +0100
+
 tanglu-live-installer (0.4.9) staging; urgency=low
 
   * Remove graphicsmagick after installation
