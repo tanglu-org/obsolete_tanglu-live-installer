@@ -237,7 +237,7 @@ class InstallerEngine:
             # remove some live-config cruft which might still be around
             self.do_run_in_chroot("rm -rf /lib/live")
             # reset dconf overrides
-            self.do_run_in_chroot("rm -f /usr/share/glib-2.0/schemas/*.override")
+            self.do_run_in_chroot("rm -f /usr/share/glib-2.0/schemas/20_live-cd-config.gschema.override")
             if not os.path.exists('/target/etc/kde4/kdm/kdmrc'):
                 self.do_run_in_chroot("glib-compile-schemas /usr/share/glib-2.0/schemas")
 
