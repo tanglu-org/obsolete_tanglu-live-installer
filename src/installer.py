@@ -238,7 +238,7 @@ class InstallerEngine:
             self.do_run_in_chroot("rm -rf /lib/live")
             # reset dconf overrides
             self.do_run_in_chroot("rm -f /usr/share/glib-2.0/schemas/20_live-cd-config.gschema.override")
-            if not os.path.exists('/target/etc/kde4/kdm/kdmrc'):
+            if not os.path.exists('/target/usr/bin/plasma-desktop'):
                 self.do_run_in_chroot("glib-compile-schemas /usr/share/glib-2.0/schemas")
 
             # add new user
@@ -338,6 +338,7 @@ class InstallerEngine:
 
             # Make the new user the default user in KDM
             kdmrcPath = '/target/etc/kde4/kdm/kdmrc'
+            sddmconfPath = '/target/etc/sddm.conf'
             if os.path.exists(kdmrcPath):
                 # Remove autologin
                 print " --> Remove autologin from KDM"
@@ -362,6 +363,12 @@ class InstallerEngine:
                 gdmconffh.write("\n[chooser]\n")
                 gdmconffh.write("\n[debug]\n")
                 gdmconffh.close()
+            elif os.path.exists(sddmconfPath):
+                print " --> Remove autologin from SDDM"
+                cmd = "sed -i 's/^AutoUser.*/AutoUser=/g' %s" % sddmconfPath
+                os.system(cmd)
+                cmd = "sed -i 's/^AutoRelogin.*/AutoRelogin=false/g' %s" % sddmconfPath
+                os.system(cmd)
             elif os.path.exists("/target/etc/mdm/mdm.conf"):
                 # MDM overwrite (specific to Debian/live-initramfs)
                 print " --> Configuring MDM"
