@@ -1,3 +1,10 @@
+tanglu-live-installer (0.4.11) staging; urgency=medium
+
+  * Add support for SDDM
+  * Allow any alphanumeric in username (TB: #29)
+
+ -- Matthias Klumpp <mak@debian.org>  Mon, 24 Nov 2014 16:42:08 +0100
+
 tanglu-live-installer (0.4.10) staging; urgency=low
 
   * Only remove the live-cd gsettings override
