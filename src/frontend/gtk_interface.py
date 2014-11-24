@@ -1527,7 +1527,7 @@ class InstallerWindow:
         return all(allowed.match(x) for x in hostname.split("."))
 
     def is_valid_username(self, username):
-        return re.search(r'^[A-z][A-z|\.|\s]+$',username) != None
+        return re.search(r'^\w+$',username) != None
 
     def wizard_cb(self, widget, goback, data=None):
         ''' wizard buttons '''
