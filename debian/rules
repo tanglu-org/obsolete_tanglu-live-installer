@@ -12,7 +12,4 @@ override_dh_auto_install:
 
 override_dh_install:
 	dh_install --list-missing
-	# create some ugly symlinks for the slideshows...
-	ln -s slideshow-kde $(CURDIR)/debian/tanglu-live-installer-slideshow-kde/usr/share/live-installer/slideshow
-	ln -s slideshow-gnome $(CURDIR)/debian/tanglu-live-installer-slideshow-gnome/usr/share/live-installer/slideshow
 	dh_installinit

@@ -25,30 +25,13 @@ Depends: desktop-file-utils,
          python-qt4,
          python-webkit,
          tanglu-artwork-base,
-         tanglu-live-installer-slideshow-gnome | tanglu-live-installer-slideshow-kde,
          ${misc:Depends}
-Description: Live Installer for Tanglu Aequorea
- A live installer for Tanglu GNU/Linux, designed for
- the Aequorea Victoria release.
-
-Package: tanglu-live-installer-slideshow-gnome
-Architecture: all
-Conflicts: tanglu-live-installer-slideshow-kde
-Depends: ${misc:Depends}
-Description: Live Installer for Aequorea - GNOME Slideshow
- A live installer for Tanglu GNU/Linux, designed for
- the Aequorea Victoria release.
+Replaces: tanglu-live-installer-slideshow-gnome (<< 0.4.12),
+          tanglu-live-installer-slideshow-kde (<< 0.4.12)
+Breaks: tanglu-live-installer-slideshow-gnome (<< 0.4.12),
+        tanglu-live-installer-slideshow-kde (<< 0.4.12)
+Description: Live Installer for Tanglu
+ An alternative installer for Tanglu GNU/Linux, designed for
+ the "Bartholomea annulata" release.
  .
- This package contains a Tanglu slideshow, showcasing the
- GNOME desktop, for the live-installer.
-
-Package: tanglu-live-installer-slideshow-kde
-Architecture: all
-Conflicts: tanglu-live-installer-slideshow-gnome
-Depends: ${misc:Depends}
-Description: Live Installer for Aequorea - KDE Slideshow
- A live installer for Tanglu GNU/Linux, designed for
- the Aequorea Victoria release.
- .
- This package contains a Tanglu slideshow, showcasing the
- KDE Plasma desktop, for the live-installer.
+ It ships with slideshows for the GNOME and KDE flavors.

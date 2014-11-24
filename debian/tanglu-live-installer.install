@@ -10,6 +10,8 @@ usr/share/live-installer/flags
 usr/share/live-installer/icons
 usr/share/live-installer/languages
 usr/share/live-installer/locales
+usr/share/live-installer/slideshow-gnome
+usr/share/live-installer/slideshow-kde
 usr/share/live-installer/timezone
 usr/share/live-installer/timezones
 usr/share/menu
