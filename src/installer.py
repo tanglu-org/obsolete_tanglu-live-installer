@@ -365,9 +365,9 @@ class InstallerEngine:
                 gdmconffh.close()
             elif os.path.exists(sddmconfPath):
                 print " --> Remove autologin from SDDM"
-                cmd = "sed -i 's/^AutoUser.*/AutoUser=/g' %s" % sddmconfPath
+                cmd = "sed -i 's/^User.*/User=/g' %s" % sddmconfPath
                 os.system(cmd)
-                cmd = "sed -i 's/^AutoRelogin.*/AutoRelogin=false/g' %s" % sddmconfPath
+                cmd = "sed -i 's/^Relogin.*/Relogin=false/g' %s" % sddmconfPath
                 os.system(cmd)
             elif os.path.exists("/target/etc/mdm/mdm.conf"):
                 # MDM overwrite (specific to Debian/live-initramfs)
