@@ -1,3 +1,9 @@
+tanglu-live-installer (0.4.12) staging; urgency=medium
+
+  * Auto-select the right slideshow at runtime
+
+ -- Matthias Klumpp <mak@debian.org>  Mon, 24 Nov 2014 22:52:52 +0100
+
 tanglu-live-installer (0.4.11) staging; urgency=medium
 
   * Add support for SDDM
