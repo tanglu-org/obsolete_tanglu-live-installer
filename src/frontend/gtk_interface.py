@@ -424,11 +424,11 @@ class InstallerWindow:
         #    self.wTree.get_widget("vbox_install").show_all()
         # Initiate the slide show
         if os.path.exists("/usr/bin/gnome-shell"):
-            self.slideshow_path = "/usr/share/live-installer/slideshow-gnome"
+            self.slideshow_path = "/usr/share/live-installer/slideshow/gnome"
         elif os.path.exists("/usr/bin/kwin"):
-            self.slideshow_path = "/usr/share/live-installer/slideshow-kde"
+            self.slideshow_path = "/usr/share/live-installer/slideshow/kde"
         else:
-            self.slideshow_path = "/usr/share/live-installer/slideshow"
+            self.slideshow_path = "/usr/share/live-installer/slideshow/other"
         if os.path.exists(self.slideshow_path):
             self.slideshow_browser = webkit.WebView()
             s = self.slideshow_browser.get_settings()

@@ -224,8 +224,6 @@ class InstallerEngine:
             our_current += 1
             self.update_progress(total=our_total, current=our_current, message=_("Removing live configuration (packages)"))
             self.do_run_in_chroot("apt-get purge --yes --force-yes live-boot live-boot-initramfs-tools tanglu-live-installer live-config live-config-systemd gparted")
-            self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-gnome")
-            self.do_run_in_chroot("apt-get purge --yes --force-yes tanglu-live-installer-slideshow-kde")
             # this is only used by the live-installer
             # FIXME: If a Tanglu spin is *ever* shipping it by default, we need to update this line!
             self.do_run_in_chroot("apt-get purge --yes --force-yes graphicsmagick")
